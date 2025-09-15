@@ -1,0 +1,75 @@
+```bash
+npx create-react-app tenebris-wallet
+cd tenebris-wallet
+npm install ethers styled-components react-router-dom
+```
+
+```
+src/
+├── assets/
+├── components/
+├── pages/
+├── utils/
+├── context/
+├── styles/
+│   └── GlobalStyles.js
+└── App.js
+```
+
+```js
+// src/styles/GlobalStyles.js
+import { createGlobalStyle } from 'styled-components';
+
+export const GlobalStyles = createGlobalStyle`
+  * {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  body {
+    background-color: #0d0d1a;
+    color: #e6f0ff;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+`;
+```
+
+```js
+// src/App.js
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { GlobalStyles } from './styles/GlobalStyles';
+import Home from './pages/Home';
+
+function App() {
+  return (
+    <Router>
+      <GlobalStyles />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
+```
+
+```js
+// src/pages/Home.js
+import React from 'react';
+
+const Home = () => {
+  return (
+    <div style={{ padding: '2rem' }}>
+      <h1>Welcome to Tenebris</h1>
+      <p>Multi-chain Crypto Wallet</p>
+    </div>
+  );
+};
+
+export default Home;
+```
